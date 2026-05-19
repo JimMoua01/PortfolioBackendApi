@@ -48,7 +48,8 @@ builder.Services.AddCors(options =>
         policy => policy.WithOrigins("http://localhost:4200",
                                      "https://portfoliofrontend-t36g.onrender.com",
                                      "http://localhost:5173",
-                                     "https://portfolioprojectreact.onrender.com")
+                                     "https://portfolioprojectreact.onrender.com",
+                                     "http://localhost:8081")
                         .AllowAnyHeader()
                         .AllowAnyMethod());
 });
@@ -61,7 +62,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 app.UseCors("AllowFrontend");
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
